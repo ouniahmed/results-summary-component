@@ -1,0 +1,272 @@
+:root {
+  --clr-primary-600: hsl(0, 100%, 67%);
+  --clr-primary-500: hsl(39, 100%, 56%);
+  --clr-primary-400: hsl(234, 85%, 45%);
+  --clr-primary-300: hsl(166, 100%, 37%);
+
+  --clr-primary-600-op: hsl(0, 100%, 67%, 0.1);
+  --clr-primary-500-op: hsl(39, 100%, 56%, 0.1);
+  --clr-primary-400-op: hsl(234, 85%, 45%, 0.1);
+  --clr-primary-300-op: hsl(166, 100%, 37%, 0.1);
+
+  --clr-gradient-background-600: hsl(252, 100%, 67%);
+  --clr-gradient-background-500: hsl(241, 81%, 54%);
+
+  --clr-gradient-circle-400: hsla(256, 72%, 46%, 1);
+  --clr-gradient-circle-800: hsla(241, 72%, 46%, 0);
+
+  --clr-neutral-800: hsl(224, 30%, 27%);
+  --clr-neutral-300: hsl(241, 100%, 89%);
+  --clr-neutral-200: hsl(221, 100%, 96%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --ff-base: "Hanken Grotesk", sans-serif;
+
+  --fw-regular: 500;
+  --fw-semi-bold: 700;
+  --fw-bold: 800;
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* General styling */
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  font-size: 1.125rem;
+  color: var(--clr-neutral-800);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 100vh;
+}
+
+/* utilities */
+.fw-bold {
+  font-weight: var(--fw-bold);
+  font-size: 1.9rem;
+}
+
+.fw-semiBold {
+  font-weight: var(--fw-semi-bold);
+}
+
+.clr-ligth {
+  color: var(--clr-neutral-100);
+}
+
+.flex-group {
+  display: flex;
+}
+
+.card--bg-pink {
+  background-color: var(--clr-primary-600-op);
+}
+
+.card__category--clr-pink {
+  color: var(--clr-primary-600);
+}
+
+.card--bg-yellow {
+  background-color: var(--clr-primary-500-op);
+}
+
+.card__category--clr-yellow {
+  color: var(--clr-primary-500);
+}
+
+.card--bg-green {
+  background-color: var(--clr-primary-300-op);
+}
+
+.card__category--clr-green {
+  color: var(--clr-primary-300);
+}
+
+.card--bg-blue {
+  background-color: var(--clr-primary-400-op);
+}
+
+.card__category--clr-blue {
+  color: var(--clr-primary-400);
+}
+
+.card__category--bg-react::before {
+  background-image: url("assets/images/icon-reaction.svg");
+}
+
+.card__category--bg-memo::before {
+  background-image: url("assets/images/icon-memory.svg");
+}
+
+.card__category--bg-verbal::before {
+  background-image: url("assets/images/icon-verbal.svg");
+}
+
+.card__category--bg-visual::before {
+  background-image: url("assets/images/icon-visual.svg");
+}
+
+/* resulat styles */
+.result {
+  background: linear-gradient(
+    var(--clr-gradient-background-600),
+    var(--clr-gradient-background-500)
+  );
+  padding: 1em 1.5em;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  color: var(--clr-neutral-300);
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  body {
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+  }
+  main {
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
+    height: auto;
+    place-content: center;
+  }
+
+  .result {
+    justify-content: flex-start;
+    border-radius: 2rem;
+    gap: 1.5rem;
+  }
+
+  .result__circle {
+    width: 65%;
+    margin: 0;
+    flex: 0.8;
+  }
+}
+
+.result__circle {
+  background: linear-gradient(
+    var(--clr-gradient-circle-400),
+    var(--clr-gradient-circle-800)
+  );
+  border-radius: 100%;
+  padding: 1em;
+  min-width: 7rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result__circle > p {
+  opacity: 0.6;
+}
+
+/* summary styles */
+
+.summary {
+  padding: 1em;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+  border-radius: 0.5rem;
+  font-size: 0.925rem;
+}
+
+.card span {
+  opacity: 0.5;
+}
+
+.card__category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.card__category[data-icon="category"]::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+}
+
+.btn {
+  background-color: var(--clr-neutral-800);
+  color: var(--clr-neutral-100);
+  border: none;
+  padding: 0.8em;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(
+    var(--clr-gradient-background-600),
+    var(--clr-gradient-background-500)
+  );
+}
